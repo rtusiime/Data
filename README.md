@@ -1,4 +1,4 @@
-# Web Development Project 2 - WeatherDash
+# Web Development Project 5 - WeatherDashboard
 
 Submitted by: **Kevin Tusiime**
 
@@ -16,23 +16,11 @@ The following **required** functionality is completed:
 - [x] **Clicking on the weather card toggles display of detailed weather information**
 - [x] **Searching in the navigation bar filters the displayed weather card list based on location name**
 
-The following **optional** features are implemented:
-
-- [x] Weather cards display icons depicting the current weather condition
-- [x] Weather cards have different visual styles (background colors) based on the temperature
-  - [x] *Cool temperatures (< 50°F) are blue, moderate temperatures are green, and hot temperatures (> 85°F) are red.*
-
-The following **additional** features are implemented:
-
-* [x] Integration with the browser's local storage to remember the user's last searched location
-* [x] A "favorites" feature allows users to save preferred locations for quick access
-* [x] Responsive design for optimal viewing on mobile devices
-
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='dashboard-walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Kap](https://getkap.co/) for macOS
 
@@ -42,7 +30,7 @@ Building this application presented several challenges, particularly in handling
 
 ## License
 
-    Copyright [2023] [Kevin Tusiime]
+    Copyright [2024] [Kevin Tusiime]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
