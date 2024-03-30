@@ -1,0 +1,68 @@
+/* Root and General Layout */
+#root {
+  max-width: 1280px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+  color: #ffffff; /* Ensuring text is readable on dark background */
+}
+
+.App main {
+  margin-left: 260px; /* Slight adjustment to ensure a seamless look */
+  padding: 20px;
+  color: #212121; /* Dark text color for contrast against card background */
+}
+
+/* Side Nav Enhancements */
+.navBar {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding: 15px 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(35, 35, 35, 0.95); /* Slightly translucent for depth */
+  background-image: url('https://i.pinimg.com/originals/5b/12/9d/5b129de44c25ee014c31ad03590458d8.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: 1000; /* Ensures navbar stays on top */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+.navBar button {
+  margin: 10px;
+  width: 150px;
+  background: rgba(2,2,1,0.7);
+}
+
+/* Header Adjustments for Coherence */
+header {
+  max-width: max-content;
+  background: rgba(250,250,250,0.5);
+}
+
+/* Cards and List Enhancements */
+.weather-list, .weather-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  margin: 10px;
+  padding: 20px;
+  background: rgba(250,250,250,0.1);  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 8px; /* Rounded corners for a modern look */
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.weather-card:hover {
+  transform: scale(1.05); /* Slight increase in size on hover for interactivity */
+}
