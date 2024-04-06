@@ -25,7 +25,8 @@ const App = () => {
           const { lat, lon } = geoData[0];
           const weatherUrl = `${weatherApiBaseUrl}?lat=${lat}&lon=${lon}&exclude=minutely,hourly,current&appid=${apiKey}`;
           const { data: weatherData } = await axios.get(weatherUrl);
-          return { city: name, weather: weatherData.daily };
+          // console.log("weatherData...", weatherData);
+          return { city: name, weather: weatherData.daily, lat: lat, lon: lon};
         } catch (error) {
           console.error(`Error fetching weather for ${name}:`, error);
           return null;
@@ -33,6 +34,7 @@ const App = () => {
       });
 
       try {
+        // console.log("WeatherDataPromises...", weatherDataPromises);
         const results = await Promise.all(weatherDataPromises);
         setWeatherData(results.filter(Boolean)); // Filter out null results
       } catch (error) {
@@ -55,13 +57,16 @@ const App = () => {
 
   return (
     <div className="App">
-      <div>
-      <NavBar onSearch={handleSearchChange} />
-      </div>
-      <div>
-        {isLoading ? <p>Loading weather data...</p> : 
+      <div className="dashboard">
+        <h1>Weather App</h1>
+          <input
+            type="text"
+            placeholder="Search by city"
+            onChange={e => handleSearchChange(e)}
+          />
+        {isLoading ? <p>Loading weather data...</p> :
           filteredWeatherData.map((data, index) => (
-            <WeatherCard key={index} city={data.city} weather={data.weather[0]} />
+            <WeatherCard key={index} city={data.city} weather={data.weather} lat={data.lat} lon={data.lon} />
           ))
         }
       </div>
