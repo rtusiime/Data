@@ -59,6 +59,9 @@ Here's a walkthrough of implemented required features:
 
 <img src='dashboard-walkthrough-pt2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+##inspiraton:
+https://www.figma.com/file/vXdqbDEif9EdTeCBVYDNNu/Weather-App-UI-Design-(Community)?type=design&node-id=2-85&mode=design&t=oJWTwtsO8IXwnkKA-0
+
 ## License
 
 ```license
