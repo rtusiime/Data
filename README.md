@@ -55,6 +55,10 @@ Building upon the foundational features developed in Project 5, Part 2 of the We
 
 The extension into Part 2 brought new challenges, especially in integrating more complex filters and implementing charts that effectively visualize the weather data. Enhancing the dashboard with summary statistics and unique charts required a deep dive into data processing and visualization libraries. The focus was also on maintaining a seamless user experience while adding these new layers of functionality.
 
+Here's a walkthrough of implemented required features:
+
+<img src='dashboard-walkthrough-pt2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 ## License
 
 ```license
