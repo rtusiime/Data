@@ -1,0 +1,63 @@
+.weather-card-link {
+    text-decoration: none;
+  }
+
+ /* .weather-card {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+ } */
+  
+  .weather-card {
+    position: relative;
+    width: 338px;
+    height: 185px;
+    margin: 10px;
+    padding: 20px;
+    background: linear-gradient(90deg, rgba(89, 54, 180, 0.6) 0%, rgba(54, 42, 132, 0.3) 103.55%);
+    border-radius: 15px;
+    color: white;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .weather-temp {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 5em;
+    line-height: 41px;
+    font-weight: 400;
+    letter-spacing: 0.374px;
+    text-shadow: 0px 7px 7px rgba(0, 0, 0, 0.3);
+    margin-bottom: 25px;
+  }
+  
+  .weather-city {
+    font-family: 'SF Pro Text', sans-serif;
+    font-size: 1.5em;
+    line-height: 18px;
+    text-align: left;
+    position: absolute;
+    bottom: 50px;
+    left: 25px;
+  }
+  
+  .weather-forecast {
+    position: relative;
+    font-size: 1 em;
+    width: 100px;
+    height: 18px;
+    right: 20px;
+    top: 55px;
+    font-family: 'SF Pro Text', sans-serif;
+    line-height: 18px;
+  }
+  
+  .weather-icon {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    right: 20px;
+    top: 2px;
+  }
+  

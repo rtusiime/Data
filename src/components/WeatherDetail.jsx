@@ -1,57 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import WeatherChart from './WeatherChart';
+import { useLocation, useParams } from "react-router-dom";
+import './WeatherDetail.css';
 
-const API_KEY = import.meta.env.VITE_API_KEY_OPEN;
-
+// Assuming `forecastData` is directly passed as a prop to this component.
 const WeatherDetail = () => {
-  const params = useParams();
-  const [weatherDetails, setWeatherDetails] = useState(null);
+    const location = useLocation();
+    const { city } = useParams();
+    // console.log("location in WeatherDetail: ", location);
+    const forecastData = location.state;
+    console.log("forecastData in WeatherDetail: ", forecastData);
+    // If no data is available, display a loading message or similar.
+    if (!forecastData) {
+        return <p>Loading weather details...</p>;
+    }
 
-  useEffect(() => {
-    const getWeatherDetail = async () => {
-      const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${params.lat}&lon=${params.lon}&appid=${API_KEY}&units=metric`;
+    // Extracting some specific details for demonstration purposes
+    const { temperature: temp, windSpeed: wind, relativeHumidity: humidity, detailedForecast: details } = forecastData[0];
 
-      try {
-        const response = await fetch(weatherUrl);
-        const json = await response.json();
-        setWeatherDetails(json);
-      } catch (error) {
-        console.error("Failed to fetch weather details:", error);
-      }
-    };
-
-    getWeatherDetail();
-  }, [params.lat, params.lon]);
-
-  if (!weatherDetails) {
-    return <p>Loading...</p>;
-  }
-
-  return (
-    <div>
-      <h1>Weather in {weatherDetails.name}</h1>
-      <div>
-        <img
-          src={`http://openweathermap.org/img/wn/${weatherDetails.weather[0].icon}.png`}
-          alt={weatherDetails.weather[0].description}
-        />
-        <p>{weatherDetails.weather[0].description}</p>
-      </div>
-      <br />
-      <div>
-        <strong>Temperature:</strong> {weatherDetails.main.temp} °C
-      </div>
-      <div>
-        <strong>Pressure:</strong> {weatherDetails.main.pressure} hPa
-      </div>
-      <div>
-        <strong>Humidity:</strong> {weatherDetails.main.humidity}%
-      </div>
-      <div>
-        <strong>Wind Speed:</strong> {weatherDetails.wind.speed} m/s
-      </div>
-    </div>
-  );
+    return (
+        <div className="weather-detail">
+            <div className='summary'>
+                <div className="city">
+                    <h3>{city}</h3>
+                </div>
+                <div className='temperature'>
+                    <h3>{temp} °</h3>
+                </div>
+                <div className='wind'>
+                    <h3>{wind}</h3>
+                </div>
+                <div className='humidity'>
+                <h3>{humidity.value}%</h3>
+                </div>
+            </div>
+            <div className='details'>
+                <p>{details}</p>
+            </div>
+            <WeatherChart forecastData={forecastData} />
+        </div>
+    );
 };
 
 export default WeatherDetail;

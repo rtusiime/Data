@@ -1,28 +1,31 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-// import './WeatherCard.css'; // Ensure this is uncommented if you have the CSS file.
+import fastWind from '../assets/fast-wind.svg';
+import heavyRain from '../assets/heavy-rain.svg';
+import midRain from '../assets/mid-rain.svg';
+import './WeatherCard.css';
 
-const WeatherCard = React.memo(({ city, weather, lat, lon }) => { // Include lat and lon as props.
-  if (!weather) {
+const WeatherCard = React.memo(({ city, forecast, state, index}) => {
+  if (!forecast) {
     return <div className="weather-card">Loading...</div>;
   }
+const images = [midRain, heavyRain, fastWind];
 
-  // Use the first item in the daily array for today's weather summary, if that's your intention.
-  const todayWeather = weather[0]; // Assuming `weather` is an array of daily forecasts.
+  const todayForecast = forecast[0]; // Assuming forecast is an array of periods.
+  // console.log("forecast: ", forecast);
 
   return (
-    <Link to={`/weatherDetails/${city}`} className="weather-card-link">
+    <Link to={`/weatherDetails/${city}, ${state}`} state={forecast} className="weather-card-link">
       <div className="weather-card">
-        <h2>{city}</h2>
-        <img
-          src={`http://openweathermap.org/img/wn/${todayWeather.weather[0].icon}.png`}
-          alt={todayWeather.weather[0].description}
-          className="weather-icon" />
-        <div className="weather-info">
-          <p>Condition: {todayWeather.weather[0].main}</p>
-          <p>Description: {todayWeather.weather[0].description}</p>
-          <p>Temp: {Math.round(todayWeather.temp.day)}°C</p> {/* Assuming `temp.day` for daily temp */}
-          {/* Add more weather details as needed */}
+        <div className='left-side'>
+          <div className="weather-temp">{todayForecast.temperature}°</div>
+          <div className="weather-city">{city}, {state}</div>
+        </div>
+        <div className='right-side'>
+          <div className="weather-icon">
+            <img src={images[todayForecast.temperature>60?0:todayForecast.temperature>40?1:2]} alt="Weather" />
+          </div>
+          <div className="weather-forecast">{todayForecast.shortForecast}</div>
         </div>
       </div>
     </Link>
